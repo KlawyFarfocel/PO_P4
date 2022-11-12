@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 using namespace std;
 
 void liniowa(){
@@ -50,11 +51,40 @@ void kanoniczna(){
     float wynik=-nC/nA;
     cout<<"Miejsce zerowe znajduje sie w x="<<wynik<<endl;
 }
+void kwadratowa(){
+    float a,b,c;
+    cout<<"Podaj a: ";
+    cin>>a;
+    if(a==0){
+        cout<<"A nie może byc zerem!";
+        cin.clear();
+        cout<<"Podaj a: ";
+        cin>>a;
+    }
+    cout<<"Podaj b: ";
+    cin>>b;
+
+    cout<<"Podaj c: ";
+    cin>>c;
+
+    float delta=(b*b)-(4*(a*c));
+    if(delta<0){
+        cout<<"Nie ma miejsc zerowych!";
+        return;
+    }
+    else if(delta==0){
+        cout<<"Jest jedno miejsce zerowe w x="<<-b/(2*a)<<endl;
+    }
+    else{
+        cout<<"Sa dwa miejsca zerowe miejsce zerowe w x="<<(-b+(pow(delta,1/2)))/(2*a)<<" oraz w x="<<(-b-(pow(delta,1/2)))/(2*a);
+    }
+}
 void menu(){
     system("cls");
     cout<<"Sieam, tu menu"<<endl;
     cout<<"---------------------1.Funkcja linowa---------------------"<<endl;
     cout<<"---------------------2.Funkcja linowa, ale kanoniczna---------------------"<<endl;
+    cout<<"---------------------3.Funkcja kwadratowa---------------------"<<endl;
     cout<<"---------------------0.Wyjscie---------------------"<<endl;
     cout<<"Wybierz opcje:";
 
@@ -71,6 +101,9 @@ void menu(){
     case 2:
         kanoniczna();
         system("pause");
+    break;
+    case 3:
+    kwadratowa();
     break;
     default:
         break;
