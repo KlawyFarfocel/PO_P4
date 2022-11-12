@@ -56,10 +56,8 @@ void kwadratowa(){
     cout<<"Podaj a: ";
     cin>>a;
     if(a==0){
-        cout<<"A nie może byc zerem!";
-        cin.clear();
-        cout<<"Podaj a: ";
-        cin>>a;
+        cout<<"To funkcja liniowa! Przechodze do obliczania funkcji linowej"<<endl;
+        liniowa();
     }
     cout<<"Podaj b: ";
     cin>>b;
@@ -79,12 +77,16 @@ void kwadratowa(){
         cout<<"Sa dwa miejsca zerowe miejsce zerowe w x="<<(-b+(pow(delta,1/2)))/(2*a)<<" oraz w x="<<(-b-(pow(delta,1/2)))/(2*a);
     }
 }
+void kwadratowa_kanoniczna(){
+
+}
 void menu(){
     system("cls");
     cout<<"Sieam, tu menu"<<endl;
     cout<<"---------------------1.Funkcja linowa---------------------"<<endl;
     cout<<"---------------------2.Funkcja linowa, ale kanoniczna---------------------"<<endl;
     cout<<"---------------------3.Funkcja kwadratowa---------------------"<<endl;
+    cout<<"---------------------4.Funkcja kwadratowa kanoniczna---------------------"<<endl;
     cout<<"---------------------0.Wyjscie---------------------"<<endl;
     cout<<"Wybierz opcje:";
 
@@ -103,7 +105,10 @@ void menu(){
         system("pause");
     break;
     case 3:
-    kwadratowa();
+        kwadratowa();
+    break;
+    case 4:
+        kwadratowa_kanoniczna();
     break;
     default:
         break;
