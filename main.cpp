@@ -53,29 +53,70 @@ void kanoniczna(){
 }
 void kwadratowa(){
     float a,b,c;
-    cout<<"Podaj a: ";
-    cin>>a;
-    if(a==0){
-        cout<<"To funkcja liniowa! Przechodze do obliczania funkcji linowej"<<endl;
-        liniowa();
-    }
-    cout<<"Podaj b: ";
-    cin>>b;
+    cout<<"Wybierz postaæ:"<<endl;
+    cout<<"--------------------------------------1.Ogolna--------------------------------------"<<endl;
+    cout<<"--------------------------------------2.Kanoniczna--------------------------------------"<<endl;
+    int wybor;
+    cin>>wybor;
+    cout<<endl;
+    switch(wybor)
+    {
+        float delta;
+        case 1:
+            cout<<"Podaj a: ";
+            cin>>a;
+            if(a==0){
+                cout<<"To funkcja liniowa! Przechodze do obliczania funkcji linowej"<<endl;
+                liniowa();
+            }
+            cout<<"Podaj b: ";
+            cin>>b;
 
-    cout<<"Podaj c: ";
-    cin>>c;
+            cout<<"Podaj c: ";
+            cin>>c;
 
-    float delta=(b*b)-(4*(a*c));
-    if(delta<0){
-        cout<<"Nie ma miejsc zerowych!";
-        return;
+            delta=(b*b)-(4*(a*c));
+            if(delta<0){
+                cout<<"Nie ma miejsc zerowych!";
+            }
+            else if(delta==0){
+                cout<<"Jest jedno miejsce zerowe w x="<<-b/(2*a)<<endl;
+            }
+            else{
+                cout<<"Sa dwa miejsca zerowe miejsce zerowe w x="<<(-b+(pow(delta,1/2)))/(2*a)<<" oraz w x="<<(-b-(pow(delta,1/2)))/(2*a);
+            }
+        break;
+        case 2:
+            float p,q,a,x1,x2;
+            cout << "Podaj p"<<endl;
+            cin >> p;
+            cout << "Podaj q"<<endl;
+            cin >> q;
+            cout << "Podaj a"<<endl;
+            cin >> a;
+            b=-((2*a)*p);
+            delta = -((4*a)*q);
+            if (delta > 0 ){
+                float delta1 = sqrt(delta);
+                cout << "Miejsca zerowe"<<endl;
+                x1=(-b-delta1)/(2*a);
+                x2=(-b+delta1)/(2*a);
+                cout << "x1:"<<x1<<" , "<<"x2:"<<x2;
+            }
+            else if (delta ==0){
+                x1=-b/(2*a);
+                cout << "Jedno miejsce zerowe"<<endl;
+                cout << x1;
+            }
+
+            else if (delta < 0) {
+                cout << "Brak";
+            }
+        break;
+        default:
+        break;
     }
-    else if(delta==0){
-        cout<<"Jest jedno miejsce zerowe w x="<<-b/(2*a)<<endl;
-    }
-    else{
-        cout<<"Sa dwa miejsca zerowe miejsce zerowe w x="<<(-b+(pow(delta,1/2)))/(2*a)<<" oraz w x="<<(-b-(pow(delta,1/2)))/(2*a);
-    }
+
 }
 void kwadratowa_kanoniczna(){
 
